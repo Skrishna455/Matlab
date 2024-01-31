@@ -1,0 +1,11 @@
+
+A = imread("insta.jpg"); %reading image
+imshow(A) % displaying the image
+image_filter = im2gray(A); % applying grayscale to the image
+imshow(image_filter) % displaying grayscale image
+F = fspecial("average",32); % averaging pixels of image by 20, 20
+G = fspecial("gaussian",35,0.9);
+Ifltr = imfilter(image_filter,F); % applying the image filter of F to our image(A)
+imshow(Ifltr) % displaying the image after applying filter
+imshowpair(Ifltr,A,"montage") % displaying original image, filtered image side by side(montage)
+imwrite(Ifltr,'final.png')
